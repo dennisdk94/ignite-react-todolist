@@ -1,18 +1,29 @@
-import { Container } from './styles';
+import { Container, CheckBox } from './styles';
 
-export function ToDoItem() {
+import Trash from '../../assets/trash.svg';
+import Check from '../../assets/check.svg';
+
+interface IProps {
+    checked: boolean;
+    label: string
+    handleExclude: () => void;
+    handleCheck: () => void;
+}
+
+export function ToDoItem(props:IProps) {
     return (
         <Container>
             <div className="content">
-                <div className='check'>
-
-                </div>
-                <span>
-                    Integer urna interdum massa libero auctor neque turpis turpis 
-                    semper. Duis vel sed fames integer. 
+                <CheckBox checked={props.checked} onClick={() => props.handleCheck()}>
+                    {props.checked && <img src={Check} alt="" />}
+                </CheckBox>
+                <span className={props.checked ? 'check' : ''}>
+                    {props.label}
                 </span>
             </div>
-            <button>asdasd</button>
+            <button onClick={() => props.handleExclude()}>
+                <img src={Trash} alt="" />
+            </button>
         </Container>
     )
 }

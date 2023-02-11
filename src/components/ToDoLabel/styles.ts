@@ -10,8 +10,10 @@ export const Container = styled.div`
     }
     div {
         background: ${(props) => props.theme['gray-400']};
-        width: 25px ;
+        min-width: 25px;
+        max-width: 70px ;
         height: 19px;
+        padding: 0 8px;
         margin-left: 8px;
         border-radius: 999px;
         display: flex;

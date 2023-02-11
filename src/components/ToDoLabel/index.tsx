@@ -2,7 +2,7 @@ import { Container } from './styles';
 
 interface IProps {
     label: string,
-    quantidade: number
+    quantidade: number | string
 }
 
 export function ToDoLabel(props:IProps) {
